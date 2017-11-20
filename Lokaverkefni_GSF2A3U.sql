@@ -1,0 +1,4 @@
+CREATE DATABASE 2605993489_TinyVideo;
+
+use 2605993489_TinyVideo;
+
