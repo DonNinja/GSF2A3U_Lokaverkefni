@@ -151,5 +151,172 @@ VALUES
 (1008, 34368, 4.0, '2009-03-07', NULL, 1.0),
 (1009, 34369, 4.5, '2009-03-08', '2009-03-09', 0.5);
 
-
 /*************************** 3 ***************************/
+
+SELECT MOVIE_TITLE, MOVIE_YEAR, MOVIE_COST
+	FROM MOVIE
+    WHERE MOVIE_TITLE LIKE '%hope%'
+	ORDER BY MOVIE_TITLE;
+
+/*************************** 4 ***************************/
+
+SELECT MOVIE_TITLE, MOVIE_YEAR, MOVIE_GENRE
+	FROM MOVIE
+    WHERE MOVIE_GENRE = 'ACTION';
+
+/*************************** 5 ***************************/
+
+SELECT MOVIE_NUM, MOVIE_TITLE, MOVIE_COST
+	FROM MOVIE
+    WHERE MOVIE_COST > 40;
+
+/*************************** 6 ***************************/
+
+SELECT MOVIE_NUM, MOVIE_TITLE, MOVIE_COST, MOVIE_GENRE
+	FROM MOVIE
+    WHERE (MOVIE_GENRE = 'ACTION' 
+		OR MOVIE_GENRE = 'COMEDY')
+        AND MOVIE_COST < 50.00
+	ORDER BY MOVIE_GENRE;
+
+/*************************** 7 ***************************/
+
+SELECT MOVIE_NUM, CONCAT(MOVIE_TITLE, ' (', MOVIE_YEAR, ')  ', MOVIE_GENRE) AS 'Movie Description'
+	FROM MOVIE;
+
+/*************************** 8 ***************************/
+
+SELECT MOVIE_GENRE, COUNT(MOVIE_GENRE) AS 'Number of Movies'
+	FROM MOVIE
+    GROUP BY MOVIE_GENRE;
+
+/*************************** 9 ***************************/
+
+SELECT ROUND(avg(MOVIE_COST), 4) AS 'Average Movie Cost'
+	FROM MOVIE;
+
+/*************************** 10 ***************************/
+
+SELECT MOVIE_GENRE, ROUND(AVG(MOVIE_COST), 2) AS 'Average Cost'
+	FROM MOVIE
+    GROUP BY MOVIE_GENRE;
+
+/*************************** 11 ***************************/
+
+SELECT MOVIE.MOVIE_TITLE, MOVIE.MOVIE_GENRE, PRICE.PRICE_DESCRIPTION, PRICE.PRICE_RENTFEE
+	FROM MOVIE
+    INNER JOIN PRICE
+		ON MOVIE.PRICE_CODE = PRICE.PRICE_CODE;
+
+/*************************** 12 ***************************/
+
+SELECT MOVIE.MOVIE_GENRE, ROUND(AVG(PRICE.PRICE_RENTFEE), 2)
+	FROM MOVIE
+    INNER JOIN PRICE
+		ON MOVIE.PRICE_CODE = PRICE.PRICE_CODE
+	GROUP BY MOVIE.MOVIE_GENRE;
+
+/*************************** 13 ***************************/
+
+SELECT MOVIE.MOVIE_TITLE, MOVIE.MOVIE_YEAR, MOVIE.MOVIE_COST / PRICE.PRICE_RENTFEE AS 'Breakeven Rentals'
+	FROM MOVIE
+    INNER JOIN PRICE
+		ON MOVIE.PRICE_CODE = PRICE.PRICE_CODE;
+
+
+/*************************** 14 ***************************/
+
+ SELECT MOVIE_TITLE, MOVIE_YEAR
+	 FROM MOVIE
+	 WHERE PRICE_CODE IS NOT NULL;
+
+/*************************** 15 ***************************/
+
+SELECT MOVIE_TITLE, MOVIE_YEAR, MOVIE_COST
+	FROM MOVIE
+	WHERE MOVIE_COST BETWEEN 44.99 AND 49.99;
+
+/*************************** 16 ***************************/
+
+SELECT MOVIE.MOVIE_TITLE, MOVIE.MOVIE_YEAR, PRICE.PRICE_DESCRIPTION, PRICE.PRICE_RENTFEE
+	FROM MOVIE
+    INNER JOIN PRICE
+		ON MOVIE.PRICE_CODE = PRICE.PRICE_CODE
+	WHERE MOVIE.MOVIE_GENRE IN ('FAMILY', 'COMEDY', 'DRAMA');
+
+/*************************** 17 ***************************/
+
+SELECT MIN(MEM_BALANCE) AS 'Minimum Balance', MAX(MEM_BALANCE) AS 'Maximum Balance', AVG(MEM_BALANCE) AS 'Average Balance'
+	FROM MEMBERSHIP;
+
+/*************************** 18 ***************************/
+
+
+
+/*************************** 19 ***************************/
+
+
+
+/*************************** 20 ***************************/
+
+
+
+/*************************** 21 ***************************/
+
+
+
+/*************************** 22 ***************************/
+
+
+
+/*************************** 23 ***************************/
+
+
+
+/*************************** 24 ***************************/
+
+
+
+/*************************** 25 ***************************/
+
+
+
+/*************************** 26 ***************************/
+
+
+
+/*************************** 27 ***************************/
+
+
+
+/*************************** 28 ***************************/
+
+
+
+/*************************** 29 ***************************/
+
+
+
+/*************************** 30 ***************************/
+
+
+
+/*************************** 31 ***************************/
+
+
+
+/*************************** 32 ***************************/
+
+
+
+/*************************** 33 ***************************/
+
+
+
+/*************************** 34 ***************************/
+
+
+
+/*************************** 35 ***************************/
+
+
